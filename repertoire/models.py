@@ -15,7 +15,7 @@ class Disponibilites(models.Model):
 		('mail', 'e-mail'),
 		]
 
-	dispo = MultiSelectField(choices=Dispo_Choices)
+	dispo = MultiSelectField(choices=Dispo_Choices, blank=True, null=True)
 
 	class Meta:
 		abstract = True

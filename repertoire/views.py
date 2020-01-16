@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from repertoire.models import Metier
+from .forms import ContactForm
 
 
 
@@ -16,3 +17,13 @@ def apropos(request):
 def contact(request):
 
 	return render(request, 'contact.html')
+
+def add_contact(request):
+
+	form = ContactForm(request.POST or None)
+
+	if form.is_valid():
+		prenom = form.cleaned_data['prenom']
+
+	return render(request, 'add_contact.html', locals())
+
