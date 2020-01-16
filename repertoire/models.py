@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from multiselectfield import MultiSelectField
+from django.dispatch import receiver
+from django.db.models.signals import m2m_changed
 
 
 
@@ -48,32 +50,21 @@ class Contact(Disponibilites):
 
 
 	def save(self, *args, **kwargs):
-		super(Contact, self).save(*args, **kwargs)
-		c= self
 
-		for m in c.metier.all():
-
-			check_list=[]
+		if self.pk:
 
 
-			"""je teste tel dans lun des contacts.dispo"""
-			if m.contact_set.filter(dispo__contains ='tel'):
-				check_list.append('tel')
+			c= self
+			super(Contact, c).save(*args, **kwargs)
 
-			if m.contact_set.filter(dispo__contains ='mail'):
-				check_list.append('mail')
+			for m in c.metier.all():
 
-			if m.contact_set.filter(dispo__contains ='irl'):
-				check_list.append('irl')
 
-			m.dispo = check_list
-			m.save()
-
-			for s in m.secteur.all():
 				check_list=[]
 
 
-				if s.metier_set.filter(dispo__contains='tel'):
+				"""je teste tel dans lun des contacts.dispo"""
+				if m.contact_set.filter(dispo__contains ='tel'):
 					check_list.append('tel')
 
 				if m.contact_set.filter(dispo__contains ='mail'):
@@ -82,50 +73,29 @@ class Contact(Disponibilites):
 				if m.contact_set.filter(dispo__contains ='irl'):
 					check_list.append('irl')
 
+				m.dispo = check_list
+				m.save()
 
-				s.dispo=check_list
-				s.save()
-
-	def create(self, *args, **kwargs):
-		super(Contact, self).create(*args, **kwargs)
-		c= self
-
-		for m in c.metier.all():
-
-			check_list=[]
+				for s in m.secteur.all():
+					check_list=[]
 
 
-			"""je teste tel dans lun des contacts.dispo"""
-			if m.contact_set.filter(dispo__contains ='tel'):
-				check_list.append('tel')
+					if s.metier_set.filter(dispo__contains='tel'):
+						check_list.append('tel')
 
-			if m.contact_set.filter(dispo__contains ='mail'):
-				check_list.append('mail')
+					if m.contact_set.filter(dispo__contains ='mail'):
+						check_list.append('mail')
 
-			if m.contact_set.filter(dispo__contains ='irl'):
-				check_list.append('irl')
-
-			m.dispo = check_list
-			m.save()
-
-			for s in m.secteur.all():
-				check_list=[]
+					if m.contact_set.filter(dispo__contains ='irl'):
+						check_list.append('irl')
 
 
-				if s.metier_set.filter(dispo__contains='tel'):
-					check_list.append('tel')
+					s.dispo=check_list
+					s.save()
 
-				if m.contact_set.filter(dispo__contains ='mail'):
-					check_list.append('mail')
+		else:
+			super(Contact, self).save(*args, **kwargs)
 
-				if m.contact_set.filter(dispo__contains ='irl'):
-					check_list.append('irl')
-
-
-				s.dispo=check_list
-				s.save()
-
-	""" donc la jai plus envie de faire un post save et pre delete """
 
 
 
@@ -149,10 +119,10 @@ class Contact(Disponibilites):
 			if m.contact_set.filter(dispo__contains ='irl').exclude(pk=c.pk):
 				check_list.append('irl')
 
-			print("checklist_metier :",check_list)
+
 			m.dispo = check_list
 			m.save()
-			print('metier dispo depuis db', m.dispo)
+
 
 			for s in m.secteur.all():
 				check_list=[]
@@ -170,12 +140,12 @@ class Contact(Disponibilites):
 
 					check_list.append('irl')
 
-				print("checklist_secteur :",check_list)
+
 
 				s.dispo=check_list
 				s.save()
 
-				print('secteur dispo depuis db', s.dispo)
+
 
 		super(Contact, self).delete(*args, **kwargs)
 
@@ -198,3 +168,48 @@ class Secteur(Disponibilites):
 	def __str__(self):
 		return self.secteur
 
+
+
+def maj_contact_dispo_on_creation(sender, instance, **kwargs):
+
+			
+	c=instance
+
+	for m in c.metier.all():
+
+
+		check_list=[]
+
+
+		"""je teste tel dans lun des contacts.dispo"""
+		if m.contact_set.filter(dispo__contains ='tel'):
+			check_list.append('tel')
+
+		if m.contact_set.filter(dispo__contains ='mail'):
+			check_list.append('mail')
+
+		if m.contact_set.filter(dispo__contains ='irl'):
+			check_list.append('irl')
+
+		m.dispo = check_list
+		m.save()
+
+		for s in m.secteur.all():
+			check_list=[]
+
+
+			if s.metier_set.filter(dispo__contains='tel'):
+				check_list.append('tel')
+
+			if m.contact_set.filter(dispo__contains ='mail'):
+				check_list.append('mail')
+
+			if m.contact_set.filter(dispo__contains ='irl'):
+				check_list.append('irl')
+
+
+			s.dispo=check_list
+			s.save()
+
+
+m2m_changed.connect(maj_contact_dispo_on_creation, sender=Contact.metier.through)
