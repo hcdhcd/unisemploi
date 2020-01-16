@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+
+		<meta charset="utf-8" />
+
+		<title>{% block title %} {% endblock %}</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+		{% block css %}
+		
+		{% endblock %}
+		
+
+	</head>
+
+
+	<body >
+
+		<header> 
+			
+			<a href="{% url "annuaire" %}" ><img src="{% static 'img/uniscite.jpg' %}" ></a>
+			<a class='aban' href="{% url "apropos" %} ">faq</a>
+			<a class='aban' href="{% url "contact" %}">contact</a>
+								
+		</header>
+
+		
+
+		<section id='content'>	{% block section %}
+			
+
+			{% endblock %}
+		</section>
+		
+					
+
+
+		<footer> 
+			{% block footer %} {% endblock %}
+		</footer>
+
+
+	</body>
+
+</html>

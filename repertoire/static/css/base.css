@@ -1,0 +1,55 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+a{	
+	text-decoration: none;	
+}
+
+li{	
+	text-decoration: none;
+	list-style-type: none;
+}
+
+body {
+	height : 100vh;
+
+}
+
+
+header {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+
+
+	
+	height: 60px;		/* la taille de la banniere impacte la taille de section dans base.css, repertoire */
+
+	
+	background: #ec710e;
+
+	color: white;
+	font-family: renner;
+
+
+}
+
+header a {
+	color: white;
+	display: block;
+	vertical-align: center;
+	height: auto;
+
+	text-transform: uppercase;
+
+	padding: 4px 0px 4px 20px;
+	font-size: 2.3em;
+
+
+}
+

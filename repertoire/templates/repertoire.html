@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+	{% block title %}	{% endblock %}
+
+	{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/repertoire.css' %}">	{% endblock %}
+
+	{% block section %}	
+
+
+	<p>Vous trouverez ici une liste des metiers disponibles. Nous pouvons vous mettre en realtion si vous le souhaitez !</p>
+
+				<table>
+					<caption>Liste des métiers disponibles</caption>
+					<tr>
+						<th>Métier</th>
+						<th>Secteur</th>
+						<th>Ville</th>
+						<th>Contact</th>
+					</tr>
+
+					<tr>
+						<td>infirmier</td>
+						<td>medical</td>
+						<td>toulouse</td>
+						<td>telephone</td>
+					</tr>
+
+					<tr>
+						<td>commis</td>
+						<td>restauration</td>
+						<td>Toulouse</td>
+						<td>tel, mail, rdv</td>
+					</tr>
+
+
+
+
+			{% for metier in metiers %}
+
+					<tr>
+						<td>{{metier.metier}}</td>
+						<td>
+							{% for secteur in metier.secteur.all %}
+								{{secteur}}
+							{% endfor %}
+
+						</td>
+
+						<td>
+							{{ metier.dispo }}</td>
+						<td>{{metier.dispo}}</td>
+					</tr>
+			{% endfor %}
+
+
+				</table>
+
+
+	{% endblock %}
