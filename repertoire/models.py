@@ -31,6 +31,7 @@ class Contact(Disponibilites):
 	
 	tel = models.CharField(max_length=10, blank=True, null=True)
 	mail = models.EmailField(blank=True, null=True)
+	ville = models.CharField(max_length=84)
 
 	date = models.DateTimeField(default=timezone.now, 
 								verbose_name="Date de parution")

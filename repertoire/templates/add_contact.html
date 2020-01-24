@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 
-{% block section %}
+{% block content %}
 <p>dd</p>
 
+{% if validate %}
+<p>{{vform}}</p>
+<p>form valide</p>
+
+{% else %}
 <form action="{% url "addContact" %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p>Moi</p>
+    {{ vform.as_p }}
+    <p>Mon contact</p>
+    {{ cform.as_p }}
     <input type="submit" value="Submit" />
 </form>
+{% endif %}
+
+
 
 {% endblock %}

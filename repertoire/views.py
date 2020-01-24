@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from repertoire.models import Metier
 from .forms import ContactForm
+from utilisateurs.forms import VolontaireForm
 
 
 
@@ -20,10 +21,19 @@ def contact(request):
 
 def add_contact(request):
 
-	form = ContactForm(request.POST or None)
+	validate = 0
 
-	if form.is_valid():
-		prenom = form.cleaned_data['prenom']
+	cform = ContactForm(request.POST or None)
+	vform = VolontaireForm(request.POST or None)
+
+	if cform.is_valid() and vform.is_valid():
+
+		cform = cform.cleaned_data
+		vform = vform.cleaned_data
+	
+		
+		validate=1
+		return render(request, 'add_contact.html', locals())
 
 	return render(request, 'add_contact.html', locals())
 

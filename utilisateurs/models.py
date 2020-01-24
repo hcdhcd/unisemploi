@@ -17,7 +17,7 @@ class Volontaire(models.Model):
 		('02', 'JCN/Chèque Energie'),
 		('03', 'Colomiers'),
 		('04', 'Cinéma et citoyenneté'),
-		('na', 'Non Unis'),
+		('na', 'N\'appartient pas à Unis-Cité'),
 	]
 
 	prenom = models.CharField(max_length=30)

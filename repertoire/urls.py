@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 urlpatterns = [
 	path('', views.annuaire, name='annuaire'),
 	path('a_propos', views.apropos, name='apropos'),
-	path('contact', views.apropos, name='contact'),
+	path('contact', views.contact, name='contact'),
 	path('add_contact', views.add_contact, name='addContact'),
 
 
