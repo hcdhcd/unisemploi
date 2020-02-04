@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>dd</p>
+<h1> Ajouter un Contact </h1>
 
 {% if validate %}
 <p>{{vform}}</p>
@@ -10,9 +10,9 @@
 {% else %}
 <form action="{% url "addContact" %}" method="post">
     {% csrf_token %}
-    <p>Moi</p>
+    <h2>Mes informations</h2>
     {{ vform.as_p }}
-    <p>Mon contact</p>
+    <h2>Mon contact</h2>
     {{ cform.as_p }}
     <input type="submit" value="Submit" />
 </form>

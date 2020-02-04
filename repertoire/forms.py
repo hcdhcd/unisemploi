@@ -26,3 +26,5 @@ class ContactForm(forms.ModelForm):
             "ville": "exemple : \"Toulouse, Lyon, ...\"",
             "metier":"maintenir la touche CTRL pour selectionner plusieurs métiers"
         }
+
+

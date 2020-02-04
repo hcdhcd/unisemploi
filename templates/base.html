@@ -23,11 +23,13 @@
 	<body >
 
 		<header> 
+			<a href="{% url "annuaire" %}"><img src="{% static 'img/logo130hb.png' %}" id="logo"></a>
 			
-			<a href="{% url "annuaire" %}" ><img src="{% static 'img/uniscite.jpg' %}" ></a>
-			<a class='aban' href="{% url "apropos" %} ">A propos</a>
-			<a class='aban' href="{% url "contact" %}">Nous contacter</a>
-			<a class='aban' href="{% url "addContact" %}">Ajouter un Contact</a>
+			<nav>
+				<li><a class='aban' href="{% url "apropos" %} ">A propos</a></li>
+				<li><a class='aban' href="{% url "contact" %}">Nous contacter</a></li>
+				<li><a class='aban' href="{% url "addContact" %}">Ajouter un Contact</a></li>
+			</nav>
 								
 		</header>
 

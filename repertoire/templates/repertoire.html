@@ -3,21 +3,106 @@
 
 	{% block title %}	{% endblock %}
 
-	{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/repertoire.css' %}">	{% endblock %}
+	{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/repertoire.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/recherche.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
+					
+	{% endblock %}
 
 	{% block content %}	
 
+		<h1>Liste des métiers disponibles</h1>
 
-	<p>Vous trouverez ici une liste des metiers disponibles. Nous pouvons vous mettre en realtion si vous le souhaitez !</p>
 
-				<table>
-					<caption>Liste des métiers disponibles</caption>
+				<form action="/action_page.php" method="get"  target="_self">
+					<button id="rechercher_bouton" type="submit"> Rechercher </button>
+
+					<div>
+						<input type="text" id="filtre" name="filtre">
+					</div>
+
+					<div>
+						<label for="tri"> Trier par:</label>
+						<select id="trier_par" name = "tri" >
+
+							<option value="metier">Métier</option>
+							<option value="secteur">Secteur</option>
+							<option value="date">Date d'ajout</option>
+						</select>
+					</div>
+
+					<div>
+						<label for="metier"> Metier </label>
+						<select id="metier" name = "metier" >
+							<option value="none">---</option>
+							{% for metier in metiers %}
+
+								<label for="{{metier}}">
+									<option value="{{metier}}">{{metier}}</option>
+								</label>
+			
+							{% endfor %}
+						</select>
+					</div>
+
+					<div>
+						<label for="secteur"> Secteur </label>
+						<select id="secteur" name = "secteur" >
+							<option value="none"></option>
+							{% for metier in metiers %}
+
+								<label for="{{metier}}">
+									<option value="{{metier}}">{{metier}}</option>
+								</label>
+			
+							{% endfor %}
+						</select>
+					</div>
+					
+
+
+				</form>
+
+
+<form>
+  <div class="multiselect">
+	<div class="selectBox" onclick="showCheckboxes()">
+	  <select>
+		<option>Select an option</option>
+	  </select>
+	  <div class="overSelect"></div>
+	</div>
+	<div id="checkboxes">
+	  <label for="one">
+		<input type="checkbox" id="one" />First checkbox</label>
+	  <label for="two">
+		<input type="checkbox" id="two" />Second checkbox</label>
+	  <label for="three">
+		<input type="checkbox" id="three" />Third checkbox</label>
+		<input type="checkbox" id="one" />First checkbox</label>
+	  <label for="two">
+		<input type="checkbox" id="two" />Second checkbox</label>
+	  <label for="three">
+		<input type="checkbox" id="three" />Third checkbox</label>
+		<input type="checkbox" id="one" />First checkbox</label>
+	  <label for="two">
+		<input type="checkbox" id="two" />Second checkbox</label>
+	  <label for="three">
+		<input type="checkbox" id="three" />Third checkbox</label>
+	</div>
+  </div>
+</form>
+
+
+				<table id="table_met">
+
+
 					<tr>
 						<th>Métier</th>
 						<th>Secteur</th>
-						<th>Disponibilités</th>
+						<th id ="th_large">Disponibilités</th>
 					</tr>
-
 
 
 			{% for metier in metiers %}
@@ -32,10 +117,81 @@
 						</td>
 						<td>{{metier.dispo}}</td>
 					</tr>
+
 			{% endfor %}
 
 
 				</table>
 
+<script type="text/javascript">
+
+
+
+function getHeight(){
+		var divHeight;
+		var obj = document.getElementById('checkboxes');
+		if(obj.offsetHeight) 
+			{divHeight=obj.offsetHeight;}
+		else 
+			if(obj.style.pixelHeight){
+				{divHeight=obj.style.pixelHeight;}
+			
+				divHeight=-divHeight
+				var table = document.getElementById("table_met");
+				
+			}
+
+}
+
+
+
+
+
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  var table = document.getElementById("table_met");
+  if (!expanded) {
+	checkboxes.style.display = "block";
+	checkboxes.style.zIndex = "2";
+
+	var divHeight;
+	var obj = document.getElementById('checkboxes');
+
+
+	if(obj.offsetHeight) 
+		{divHeight=obj.offsetHeight;}
+	else 
+		if(obj.style.pixelHeight)
+			{divHeight=obj.style.pixelHeight;}		
+		
+
+	divHeight= 0;
+
+	
+	divHeight= divHeight.toString();
+	divHeight+="px";
+	var table = document.getElementById("table_met");
+
+	expanded = true;
+	table.style.marginTop = divHeight;
+  } else {
+	checkboxes.style.display = "none";
+	getHeight();
+	table.style.marginTop = "100px";
+
+
+	expanded = false;
+
+  }
+}
+</script>
+
 
 	{% endblock %}
+
+
+
+
+

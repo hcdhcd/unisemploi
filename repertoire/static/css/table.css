@@ -1,0 +1,81 @@
+table {
+	width :80%;
+	min-height: 500px;
+	margin-top: 100px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+
+}
+
+table, caption, td, th{
+	border-collapse: collapse;
+	z-index: 1;
+
+}
+
+th, td {
+	font-family: renner;
+}
+
+
+
+
+caption {
+	font-family: dominique;
+
+	word-spacing: 0.2em;
+	font-size: 2.1em;
+
+	font-weight: bold;
+	color: black;
+	
+
+	margin-bottom: 40px;
+
+}
+
+th {		
+
+	font-family: renner;
+	min-width:150px;
+	padding-top: 6px;	
+	padding-bottom: 6px;										/* cellules titre */
+	width:100%;
+	background: #fe4f00cc;
+	color: #ffddc9;
+	font-size: 1.6em;
+	text-align: center;
+
+}
+
+tr{						
+	/* ligne tableau */
+	
+	width: 100%;
+
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+
+
+
+}
+
+
+
+#th_large {
+	min-width:250px;
+}
+
+td {	
+						/* cellules contenu */
+	width:100%;											
+	color: black;
+	font-size: 1.2em;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+
