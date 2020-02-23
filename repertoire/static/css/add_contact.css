@@ -1,0 +1,56 @@
+section {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	min-height: calc(100% - 60px);
+	background: rgb(300,300,300);
+	z-index: 1;
+
+}
+
+h1{
+	font-family: dominique;
+	font-size: 2.5em;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-family: renner;
+	
+}
+
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+
+}
+
+#form_content{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: start;
+}
+
+#form_div{
+	margin-left: 100px;
+	max-width: 500px;
+}
+
+button {
+	border: none;
+	box-shadow: none;
+	background: white;
+
+}
+
+p {
+	font-family: renner;
+}

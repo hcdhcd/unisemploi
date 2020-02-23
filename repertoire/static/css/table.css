@@ -1,11 +1,15 @@
 table {
 	width :80%;
-	min-height: 500px;
-	margin-top: 100px;
+
+	margin-top: 10px;
+	padding-bottom: 10px;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
+
+	border-bottom: 2px solid #ac4a34;
+
 
 }
 
@@ -13,10 +17,12 @@ table, caption, td, th{
 	border-collapse: collapse;
 	z-index: 1;
 
+
 }
 
 th, td {
 	font-family: renner;
+
 }
 
 

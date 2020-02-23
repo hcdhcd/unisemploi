@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_contact.css' %}">
+{% endblock %}
+
 
 {% block content %}
 <h1> Ajouter un Contact </h1>
@@ -8,14 +15,193 @@
 <p>form valide</p>
 
 {% else %}
+<!--
 <form action="{% url "addContact" %}" method="post">
-    {% csrf_token %}
-    <h2>Mes informations</h2>
-    {{ vform.as_p }}
-    <h2>Mon contact</h2>
-    {{ cform.as_p }}
-    <input type="submit" value="Submit" />
+	{% csrf_token %}
+	<div id="form_content">
+		<div id="form_div">
+			<h2>Mes informations</h2>
+			{{ vform.as_p }}
+		</div>
+		<div id="form_div">
+			<h2>Mon contact</h2>
+			{{ cform.as_p }}
+		</div>
+	</div>
+	<button id="valider_bouton" type="submit"> <img src="{% static 'img/rechercher_bouton.png' %}"  /> </button>
 </form>
+
+-->
+
+<form action="{% url "addContact" %}" method="post">
+	{% csrf_token %}
+	<div id="form_content">
+		<div id="form_div">
+			<h2>Mes informations</h2>
+
+			<p>
+				{{ form.prenomV.errors }}
+				{{ form.prenomV.label_tag }}
+				{{ form.prenomV }}
+			</p>
+
+			<p>
+				{{ form.nomV.errors }}
+				{{ form.nomV.label_tag }}
+				{{ form.nomV }}
+			</p>
+
+			<p>
+				{{ form.groupeV.errors }}
+				{{ form.groupeV.label_tag }}
+				{{ form.groupeV }}
+			</p>
+
+			<p>
+				{{ form.vol_visible.errors }}
+				{{ form.vol_visible.label_tag }}
+				{{ form.vol_visible }}
+			</p>
+
+			<p>
+				{{ form.telV.errors }}
+				{{ form.telV.label_tag }}
+				{{ form.telV }}
+			</p>
+
+			<p>
+				{{ form.mailV.errors }}
+				{{ form.mailV.label_tag }}
+				{{ form.mailV }}
+			</p>
+
+		</div>
+
+
+
+		<div id="form_div">
+			<h2>Mon contact</h2>
+
+			<p>
+				{{ form.prenom.errors }}
+				{{ form.prenom.label_tag }}
+				{{ form.prenom }}
+			</p>
+
+			<p>
+				{{ form.nom.errors }}
+				{{ form.nom.label_tag }}
+				{{ form.nom }}
+			</p>
+
+
+			<p>
+				{{ form.tel.errors }}
+				{{ form.tel.label_tag }}
+				{{ form.tel }}
+			</p>
+
+			<p>
+				{{ form.mail.errors }}
+				{{ form.mail.label_tag }}
+				{{ form.mail }}
+			</p>
+
+			<p>
+				{{ form.ville.errors }}
+				{{ form.ville.label_tag }}
+				{{ form.ville }}
+			</p>
+
+			<p>
+				{{ form.dispo.errors }}
+				{{ form.dispo.label_tag }}
+				{{ form.dispo }}
+			</p>
+
+
+			<div class="formWrap">
+				<p>
+					{{ form.metier0.errors }}
+					{{ form.metier0.label_tag }}
+					{{ form.metier0 }}
+				</p>
+
+				<p>
+					{{ form.secteur0.errors }}
+					{{ form.secteur0.label_tag }}
+					{{ form.secteur0 }}
+				</p>
+			</div>
+
+			<div class="formWrap">
+				<p>
+					{{ form.metier1.errors }}
+					{{ form.metier1.label_tag }}
+					{{ form.metier1 }}
+				</p>
+
+				<p>
+					{{ form.secteur1.errors }}
+					{{ form.secteur1.label_tag }}
+					{{ form.secteur1 }}
+				</p>
+			</div>
+
+			<div class="formWrap">
+				<p>
+					{{ form.metier2.errors }}
+					{{ form.metier2.label_tag }}
+					{{ form.metier2 }}
+				</p>
+
+				<p>
+					{{ form.secteur2.errors }}
+					{{ form.secteur2.label_tag }}
+					{{ form.secteur2 }}
+				</p>
+			</div>
+
+			<div class="formWrap">
+				<p>
+					{{ form.metier3.errors }}
+					{{ form.metier3.label_tag }}
+					{{ form.metier3 }}
+				</p>
+
+				<p>
+					{{ form.secteur3.errors }}
+					{{ form.secteur3.label_tag }}
+					{{ form.secteur3 }}
+				</p>
+			</div>
+
+			<div class="formWrap">
+				<p>
+					{{ form.metier4.errors }}
+					{{ form.metier4.label_tag }}
+					{{ form.metier4 }}
+				</p>
+
+				<p>
+					{{ form.secteur4.errors }}
+					{{ form.secteur4.label_tag }}
+					{{ form.secteur4 }}
+				</p>
+			</div>
+
+
+			<button type="button" id="addButton"><img src="{%static 'img/plus16.png' %}" alt="ajouter un metier"></button>
+			<label for="addButton">Ajouter un métier</label>
+
+
+		</div>
+	</div>
+	<button id="valider_bouton" type="submit"> <img src="{% static 'img/rechercher_bouton.png' %}"  /> </button>
+</form>
+
+
+
 {% endif %}
 
 
