@@ -98,4 +98,10 @@ header .aban {
 }
 
 
+section {
 
+	width: 100%;
+	min-height: calc(100% - 224px);
+
+
+}

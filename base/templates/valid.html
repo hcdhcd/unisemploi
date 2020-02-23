@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table id="table_met">
+
+
+					<tr>
+						<th>Contact</th>
+						<th>Metier<th>
+						<th>Ajoute par</th>
+						<th >Date</th>
+					</tr>
+
+
+			{% for contact in contacts %}
+
+					<tr><a href=''>
+						<td>{{contact.prenom}} {{contact.nom}}</td>
+						<td>{{contact.metier}}</td>
+						<td>{{contact.prenomV}} {{contact.nomV}}</td>
+						<td>{{contact.date}}</td>
+
+					</a></tr>
+
+			{% endfor %}
+
+
+				</table>
+
+{% endblock %}
