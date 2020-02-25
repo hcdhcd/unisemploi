@@ -38,7 +38,8 @@ def add_contact(request):
 	form = AddContactForm(request.POST or None)
 	
 	if form.is_valid():
-		form = form.cleaned_data	
+		
+		form.save()	
 		
 		validate=1
 		return render(request, 'add_contact.html', locals())
@@ -46,6 +47,8 @@ def add_contact(request):
 	return render(request, 'add_contact.html', locals())
 
 def valid(request):
+	contacts = AddContact.objects.all()
+
 
 
 	return render(request, 'valid.html', locals())
