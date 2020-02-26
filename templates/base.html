@@ -8,7 +8,7 @@
 
 
 		<meta charset="utf-8" />
-		
+
 		<title>{% block title %} {% endblock %}</title>
 
 		<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
@@ -28,7 +28,7 @@
 			<a href="{% url "annuaire" %}"><img src="{% static 'img/logo130h.png' %}" id="logo"></a>
 			
 			<nav>
-				<li><a class='aban' href="{% url "valid" %} ">Validation Manuelle</a></li>
+				
 				<li><a class='aban' href="{% url "apropos" %} ">A propos</a></li>
 				<li><a class='aban' href="{% url "contact" %}">Nous contacter</a></li>
 				<li><a class='aban' href="{% url "addContact" %}">Ajouter un Contact</a></li>
