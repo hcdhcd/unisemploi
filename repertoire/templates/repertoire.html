@@ -14,10 +14,9 @@
 
 		<h1>Liste des Métiers Disponibles</h1>
 
-
+<!---
 				<form action="/action_page.php" method="get"  target="_self">
 					<button id="rechercher_bouton" type="submit" class="div_form"> <img src="{% static 'img/rechercher_bouton.png' %}"  /> </button>
-
 
 					<div class="div_form">
 						<input type="text" id="filtre" name="filtre">
@@ -37,7 +36,7 @@
 				</form>
 
 
-
+-->
 
 				<table id="table_met">
 
@@ -52,7 +51,7 @@
 			{% for metier in metiers %}
 
 					<tr>
-						<td>{{metier.metier}}</td>
+						<td><a href="">{{metier.metier}}</a></td>
 						<td>
 							{% for secteur in metier.secteur.all %}
 								{{secteur}}
@@ -60,6 +59,7 @@
 
 						</td>
 						<td>{{metier.dispo}}</td>
+			
 					</tr>
 
 			{% endfor %}

@@ -8,30 +8,14 @@
 
 
 {% block content %}
-<h1> Ajouter un Contact </h1>
+
 
 {% if validate %}
-
-<p>form valide</p>
+	<h1>Merci d'avoir partagé votre contact</h1>
+	<h2>Vous le verrez sur le site sitôt que nous aurons traite la demande</h2>
 
 {% else %}
-<!--
-<form action="{% url "addContact" %}" method="post">
-	{% csrf_token %}
-	<div id="form_content">
-		<div id="form_div">
-			<h2>Mes informations</h2>
-			{{ vform.as_p }}
-		</div>
-		<div id="form_div">
-			<h2>Mon contact</h2>
-			{{ cform.as_p }}
-		</div>
-	</div>
-	<button id="valider_bouton" type="submit"> <img src="{% static 'img/rechercher_bouton.png' %}"  /> </button>
-</form>
-
--->
+<h1> Ajouter un Contact </h1>
 
 <form action="{% url "addContact" %}" method="post">
 	{% csrf_token %}
@@ -193,14 +177,14 @@
 			</div>
 
 
-			<button type="button" id="addButton"><img src="{%static 'img/plus16.png' %}" alt="ajouter un metier"></button>
+			<!--<button type="button" id="addButton"><img src="{%static 'img/plus16.png' %}" alt="ajouter un metier"></button>-->
 			<label for="addButton">Ajouter un métier</label>
 
 
 		</div>
 	</div>
 	<button id="valider_bouton" type="submit"> <img src="{% static 'img/rechercher_bouton.png' %}"  /> </button>
-	<input type="submit" value="Submit" />
+
 </form>
 
 

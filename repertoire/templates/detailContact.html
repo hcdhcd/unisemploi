@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<ul>
+	{% for contact in contacts %}
+		<div>
+			<h2>Contact {{n}}</h2>
+			<p>Disponible par {{contact.dispo}}</p>
+			{% if contact.ville %}
+				<p>présent dans les villes {{contact.ville}}</p>
+			{% endif %}
+
+		</div>
+	{% endfor %}
+	</ul>
+
+{% endblock %}

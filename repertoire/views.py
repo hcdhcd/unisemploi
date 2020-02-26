@@ -17,3 +17,9 @@ def annuaire(request):
 	return render(request, 'repertoire.html', {'metiers' : metiers})
 
 
+def detailContact(request, pk):
+	contacts=Metier.objects.get(pk=pk).contact_set.all()
+
+	return render(request, 'detailContact.html', {'contacts' : contacts})
+
+

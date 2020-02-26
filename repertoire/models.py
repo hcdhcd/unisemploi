@@ -42,6 +42,7 @@ class Contact(Disponibilites):
 
 	class Meta:
 		verbose_name = "contact"
+		ordering=['date',]
 	
 	def __str__(self):
 
@@ -159,6 +160,9 @@ class Metier(Disponibilites):
 	metier = models.CharField(max_length=30)
 	secteur = models.ManyToManyField('Secteur')
 
+	class Meta:
+		ordering=['metier',]
+		
 	def __str__(self):
 		return self.metier
 
