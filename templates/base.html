@@ -8,19 +8,21 @@
 
 
 		<meta charset="utf-8" />
-
+		
 		<title>{% block title %} {% endblock %}</title>
 
-		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-		{% block css %}
-		
+		<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+		{% block cssClassic %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/ClassicPolices.css' %}">
 		{% endblock %}
+
+		{% block css %}{% endblock %}
 		
 
 	</head>
 
 
-	<body >
+	<body>
 
 		<header> 
 			<a href="{% url "annuaire" %}"><img src="{% static 'img/logo130h.png' %}" id="logo"></a>

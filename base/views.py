@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.utils import timezone
 from repertoire.models import Metier
 from .models import AddContact
-from .forms import AddContactForm
+from .forms import AddContactForm, MessageForm
 from utilisateurs.forms import VolontaireForm 
 
 
@@ -11,38 +12,48 @@ def apropos(request):
 
 def contact(request):
 
-	return render(request, 'contact.html')
-
-def add_contactpremier(request):
-
-	validate = 0
-
-	cform = AddContactForm(request.POST or None)
-	vform = VolontaireForm(request.POST or None)
-
-	if cform.is_valid() and vform.is_valid():
-
-		cform = cform.cleaned_data
-		vform = vform.cleaned_data
+	form = MessageForm(request.POST or None)
 	
-		
-		validate=1
-		return render(request, 'add_contact.html', locals())
+	validate=0
 
-	return render(request, 'add_contact.html', locals())
+	if request.method == "POST":
+		if form.is_valid():
+			form.save()
+
+			validate= 1
+
+		return render(request, 'contact.html', locals())
+
+
+
+
+
+	return render(request, 'contact.html', locals())
+
 
 def add_contact(request):
 
-	validate = 0
+
 
 	form = AddContactForm(request.POST or None)
 	
-	if form.is_valid():
-		
-		form.save()	
-		
-		validate=1
+	if request.method == "POST":
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.date= timezone.now()
+			post.save()
+
+			validate=1
+
 		return render(request, 'add_contact.html', locals())
+
+	else:
+		validate=0
+		form = AddContactForm()
+
+
+		
+		
 
 	return render(request, 'add_contact.html', locals())
 
@@ -52,4 +63,6 @@ def valid(request):
 
 
 	return render(request, 'valid.html', locals())
+
+
 

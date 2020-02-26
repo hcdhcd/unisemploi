@@ -1,0 +1,29 @@
+section{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 600px;
+	margin-top: 20px;
+
+}
+
+label{
+	float: top;
+}
+
+input, textarea{
+	display: block;
+	margin:auto;
+	width:400px;
+
+	border: solid 1px black;
+}

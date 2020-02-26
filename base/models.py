@@ -3,6 +3,13 @@ from django.utils import timezone
 from multiselectfield import MultiSelectField
 
 
+class Message(models.Model):
+	titre = models.CharField(max_length=80)
+	contenu = models.TextField()
+	lu = models.BooleanField(default=False)
+	traite = models.BooleanField(default=False)
+
+
 class AddContact(models.Model):
 
 	Dispo_Choices = [
@@ -55,7 +62,7 @@ class AddContact(models.Model):
 	
 
 	class Meta:
-		verbose_name = "contact non valide"
+		verbose_name = "AddContact"
 	
 	def __str__(self):
 

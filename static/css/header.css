@@ -1,52 +1,8 @@
-*{
-	margin: 0;
-	padding: 0;
-	z-index: 0;
-}
 
-
-a{	
-	text-decoration: none;	
-}
-
-li{	
-	text-decoration: none;
-	list-style-type: none;
-}
 
 body {
 	height : 100vh;
 
-}
-
-
-@font-face {
-	font-family: 'birthland';
-	src: url('../font/liste_m/Birthland.otf') format("opentype");
-}
-
-@font-face {
-	font-family: 'dominique';
-	src: url('../font/dominique/Dominique.otf') format("opentype");
-}
-
-
-
-@font-face {
-	font-family: 'renner';
-	src: url('../font/renner/Renner_ 400 Book.ttf') format("truetype");
-}
-
-@font-face {
-	font-family: 'absolution';
-	src: url('../font/absolution/Absolution.ttf') format("truetype");
-	font-weight: bold;
-}
-
-
-@font-face {
-	font-family: 'tahu';
-	src: url('../font/liste_m/Tahu!.ttf') format("truetype");
 }
 
 
@@ -61,7 +17,7 @@ header {
 	height: 224px;		/* la taille de la banniere impacte la taille de section dans base.css, repertoire */
 
 	
-	background: #b04319;
+	background: #ff2502;
 
 	color: white;
 	font-family: absolution;

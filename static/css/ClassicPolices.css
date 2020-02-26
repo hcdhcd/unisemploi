@@ -1,0 +1,82 @@
+/* Suppressions de certains defauts embetants*/
+
+
+*{
+	margin: 0;
+	padding: 0;
+	z-index: 0;
+}
+
+
+a{	
+	text-decoration: none;	
+}
+
+li{	
+	text-decoration: none;
+	list-style-type: none;
+}
+
+button{
+	border: none;
+	box-shadow: none;
+}
+
+
+
+@font-face {
+	font-family: 'birthland';
+	src: url('../font/liste_m/Birthland.otf') format("opentype");
+}
+
+@font-face {
+	font-family: 'dominique';
+	src: url('../font/dominique/Dominique.otf') format("opentype");
+}
+
+
+
+@font-face {
+	font-family: 'renner';
+	src: url('../font/renner/Renner_ 400 Book.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: 'absolution';
+	src: url('../font/absolution/Absolution.ttf') format("truetype");
+	font-weight: bold;
+}
+
+
+@font-face {
+	font-family: 'tahu';
+	src: url('../font/liste_m/Tahu!.ttf') format("truetype");
+}
+
+
+
+/* Definitions des polices et tailles de bases pour les textes, il faudra oenser a utiliser des classes pour modifier la police de base */
+
+h1 {
+	font-family: dominique;
+
+	word-spacing: 0.2em;
+	font-size: 2.6em;
+
+	font-weight: bold;
+	color: black;
+
+	
+
+}
+
+
+h2 {
+	font-family: renner;
+	
+}
+
+p{
+	font-family: renner;
+	font-size: 1.2em;
+}

@@ -1,17 +1,24 @@
 from django import forms
 from repertoire.models import Contact, Secteur
-from.models import AddContact
+from.models import AddContact, Message
 
+
+
+class MessageForm(forms.ModelForm):
+
+	
+	class Meta:
+
+		exclude=['lu', 'traite', ]
+		model = Message
 
 
 class AddContactForm(forms.ModelForm):
 
-	metier=forms.CharField(max_length=30, required=True)
-	secteur=forms.CharField(max_length=30, required=True)
 	
 	class Meta:
 		model = AddContact
-		fields = '__all__'
+		exclude = ['date', ]
 
 		labels = {
 			"prenomV": "Prénom",

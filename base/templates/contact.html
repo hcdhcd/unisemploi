@@ -1,6 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}"> {% endblock %}
 
 {% block content %}
 
+	<h2>
+		Un retour à nous faire, quelque chose à nous dire ? <br/>
+	</h2>
+	<h1> Envoyez nous un message</h1>
+
+	
+
+	{% if validate %}
+
+		<p>Votre message à bien été envoyé, merci de votre retour !</p>
+
+	{% else %}
+		
+		<form action="{% url 'contact' %}" method="post">
+		{% csrf_token %}
+
+			{{ form.as_p }}
+
+			<p>Pensez à laisser vos informations si vous souhaitez être recontactez</p>
+			<input type="submit" value="envoyer">
+		</form>
+
+	{% endif %}
 
 {% endblock %}
