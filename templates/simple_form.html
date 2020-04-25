@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}"> {% endblock %}
+
+{% block content %}
+
+	
+
+	
+	
+
+	{% if validate %}
+
+		{% block valide %}
+			<h1>Bien recu !</h1>
+
+			<h2>{% block comment_messageValid %}
+				block comment_messageValid
+			{% endblock %}</h2>
+
+		{% endblock %}
+
+
+	{% else %}
+
+		{% block unvalidate %}
+			<h2>{% block comment_form %} 
+				block comment_form
+			 {% endblock %}</h2>
+
+			<h1>{% block titre %}
+				block titre
+			{% endblock%}</h1>
+			
+			{% block form %}
+			<p>block form</p>
+			{% endblock %}
+		{% endblock %}
+
+	{% endif %}
+
+{% endblock %}

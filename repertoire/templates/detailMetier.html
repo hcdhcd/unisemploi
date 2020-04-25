@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/detailMetier_placement.css' %}">
+{% endblock %}
+
+{% block cssPolices %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/detailMetier_Polices.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div id="Titre">
+		<div id="titre_wrapper">
+			<h1>{{metier}}</h1>
+			<p>Nous avons <strong>{{x}}</strong> représentants pour <strong>{{metier}}</strong></p>
+		</div>
+		<button onclick="window.location.href='{% url 'prendre_contact' 'Metier' metier.pk %}';" id="contacter-tous_button">
+			Je veux contacter un {{metier}}, sans préférence
+		</button>
+	</div>
+	
+	
+	<article id="contacts">
+		<h2 class="hidden">Liste des contacts</h2>
+		<ol>
+		
+			{% for contact in contacts %}
+				<li>
+					<figure class="contact">
+
+
+						<figcaption class="contact_metiers">{% for m in contact.metier.all %}	{{m}}, {%endfor %}</figcaption>
+
+
+						<figure class="liste">		
+							<figcaption class="liste_titre">Secteur(s)</figcaption>
+							<ul>
+							
+								{%for secteur in contact.secteur.all %}
+									<li>{{secteur}}</li>
+								{%endfor%}
+							</ul>
+						</figure>
+
+						<figure class="liste">						
+							<figcaption class="liste_titre">Disponiblilité(s)</figcaption>
+							<ul>	
+								{%for dispo in contact.dispo %}
+									<li>{{dispo}}</li>
+								{%endfor%}
+							</ul>
+						</figure>
+
+						<figure class="liste">						
+							<figcaption class="liste_titre">Ville(s)</figcaption>
+							<ul>	
+								{%for dispo in contact.dispo %}
+									{% if contact.ville  %}
+										<li>{{contact.ville}}</li>
+										{% else %}
+											<li>Non précisé</li>
+									{% endif %}
+								{%endfor%}
+							</ul>
+						</figure>
+
+						<p class="intermediare">{{contact.volontaire_set}} du groupe peut serveir d'intermédiare</p>
+						
+						
+						<button onclick="window.location.href='{% url 'prendre_contact' 'Contact' contact.pk %}';"  class="classic_button"> 
+							C'est vous que je veux contacter!
+						</button>
+
+					</figure>
+				</li>
+			{% endfor %}
+		</ol>
+	</article>
+	<aside id="ressources">
+		<h2>Ressources déjà partagées</h2>
+			<a href="">
+
+					<figure>
+						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
+						<figcaption>Bien préparer son entretient.pdf</figcaption>
+					</figure>
+
+			</a>
+			<a href="">
+
+					<figure>
+						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
+						<figcaption>nomDuDoc.pdf</figcaption>
+					</figure>
+
+			</a>
+			<a href="">
+
+					<figure>
+						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
+						<figcaption>Ajouter du contenu relatif à ce memétier</figcaption>
+					</figure>
+
+			</a>
+		<button onclick="window.location.href='{% url 'add_file' 'Metier' metier.pk %}';" class="+_button">
+			je souhaite rajouter du contenu
+		</button>
+	</aside>
+
+{% endblock %}

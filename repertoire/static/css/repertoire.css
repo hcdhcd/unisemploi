@@ -27,7 +27,3 @@ a {
 	color: black;
 }
 
-a:visited /* propriétés des liens déjà visités */
-{
-   color: black;
-}

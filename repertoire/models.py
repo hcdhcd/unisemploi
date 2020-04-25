@@ -1,14 +1,23 @@
 from django.db import models
 from django.utils import timezone
 from multiselectfield import MultiSelectField
+from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import m2m_changed
+from base.models import AdminCheck
+
+"""receiver function"""
+import os
+import uuid
+from django.dispatch import receiver
+from django.utils.translation import ugettext_lazy as _
 
 
 
 
 
-class Disponibilites(models.Model):
+
+class Disponibilites(AdminCheck):
 	Dispo_Choices = [
 		('irl', 'personne'),
 		('tel', 'téléphone'),
@@ -28,21 +37,22 @@ class Contact(Disponibilites):
 	nom = models.CharField(max_length=42)
 
 	metier = models.ManyToManyField('Metier')
+	secteur = models.ManyToManyField('Secteur')
 	
 	tel = models.CharField(max_length=10, blank=True, null=True)
 	mail = models.EmailField(blank=True, null=True)
 	ville = models.CharField(max_length=84, blank=True, null=True)
 
-	date = models.DateTimeField(default=timezone.now, 
+	date_pub = models.DateTimeField(default=timezone.now, 
 								verbose_name="Date de parution")
 
-	ajoute_par = models.ForeignKey('utilisateurs.Volontaire', on_delete=models.CASCADE, null = True)
+	ajoute_par = models.ForeignKey('utilisateurs.Volontaire', related_name="ajoute_par", on_delete=models.CASCADE, null = True)
 	vol_visible = models.BooleanField(default=False)
 
 
 	class Meta:
 		verbose_name = "contact"
-		ordering=['date',]
+		ordering=['date_pub',]
 	
 	def __str__(self):
 
@@ -220,5 +230,59 @@ def maj_contact_dispo_on_creation(sender, instance, **kwargs):
 m2m_changed.connect(maj_contact_dispo_on_creation, sender=Contact.metier.through)
 
 
+class Ressource(AdminCheck):
+	titre = models.SlugField()
+	fichier = models.FileField(upload_to="ressources/")
 
-	
+	metier= models.ManyToManyField('Metier', blank=True)
+	secteur= models.ManyToManyField('Secteur', blank=True)
+
+	date_pub = models.DateTimeField(default=timezone.now, 
+								verbose_name="Date de parution")
+
+	vol = models.ForeignKey('utilisateurs.Volontaire', related_name="ressource_ajoute_par", on_delete=models.CASCADE, null = True)
+
+	def extension(self):
+		titre, extension = os.path.splitext(self.fichier.titre)
+
+		return extension
+
+
+@receiver(models.signals.post_delete, sender=Ressource)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `MediaFile` object is deleted.
+    """
+    if instance.fichier:
+        if os.path.isfile(instance.fichier.path):
+            os.remove(instance.fichier.path)
+
+class Requete(models.Model):
+	metier = models.ManyToManyField('Metier', blank=True)
+	secteur = models.ManyToManyField('Secteur', blank=True)
+	contact = models.ManyToManyField('Contact', blank=True)
+
+	volontaire = models.ManyToManyField('utilisateurs.Volontaire', blank=False)
+	date_pub = models.DateTimeField(default=timezone.now)
+
+	commentaire_vol = models.TextField()
+
+	commentaire_admin = models.TextField(blank=True, null=True)
+
+	ETAPE_CHOICES= [('0', 'non traite'),
+					('1', 'rdv pris'),
+					('2', 'rdv effectue'),
+					('3', 'clôturé'),
+						]  
+
+	etape = MultiSelectField(choices=ETAPE_CHOICES, default='0')
+
+	Dispo_Choices = [
+		('irl', 'personne'),
+		('tel', 'téléphone'),
+		('mail', 'e-mail'),
+		]
+
+	dispo_vol = MultiSelectField(choices=Dispo_Choices, blank=True, null=True)
+

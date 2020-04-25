@@ -39,7 +39,17 @@ header nav {
 	flex-direction: row;
 	background: black;
 }
+
+
+header li {
+	text-decoration: none;
+	list-style-type: none;
+}
 header .aban {
+
+
+	
+
 	color: white;
 	display: block;
 	vertical-align: center;

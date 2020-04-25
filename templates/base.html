@@ -12,9 +12,12 @@
 		<title>{% block title %} {% endblock %}</title>
 
 		<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
-		{% block cssClassic %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/button.css' %}">
+		{% block cssPolices %}
 		<link rel="stylesheet" type="text/css" href="{% static 'css/ClassicPolices.css' %}">
 		{% endblock %}
+		
+		{% block css_model %}{% endblock css_model %}
 
 		{% block css %}{% endblock %}
 		

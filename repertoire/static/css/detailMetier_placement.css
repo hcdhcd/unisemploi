@@ -1,0 +1,144 @@
+/*detailMetier_placement.css*/
+
+section {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	align-items: left;
+
+	z-index: 1;
+
+}
+
+
+/*Conteneur du Titre*/
+#Titre{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+
+	flex-basis: 0;
+
+
+
+
+	background: #1a1a1a;
+
+	box-sizing: border-box;
+	width: 100%;
+
+}
+
+/*Wrappeur Titre et description */
+#titre_wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-grow: 1;
+
+}
+
+
+
+#contacter-tous_button{
+	align-self: flex-end;
+	margin-bottom: 10px;
+
+}
+
+
+
+/*Conteneur A (par contact) */
+.contact{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: baseline;
+
+
+	padding-bottom: 10px;
+
+	
+}
+/*Titre ConteneurA */
+.contact_metiers{
+	flex-grow: 1;
+	align-self: top;
+	width:100%;
+	padding-left: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	margin-bottom: 18px;
+
+
+}
+
+/*Conteneur < A  */
+.liste{
+
+	display: flex;
+	flex-direction:column;
+	justify-content: flex-start;
+	flex-grow: 1;
+	margin-left: 10px;
+}
+
+.liste li {
+	margin-left: 10px;
+}
+
+
+.hidden{
+	display:none;
+}
+
+.intermediare{
+	align-self: flex-end;
+}
+
+/*conteneur B */
+#ressources{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: baseline;
+
+
+	margin-bottom: 50px;
+}
+
+#ressources h2{
+	flex-grow: 1;
+	align-self: top;
+	width:100%;
+	padding-left: 30px;
+
+	margin-bottom: 10px;
+
+
+}
+
+
+#ressources a{
+
+	margin-left: 10px;
+}
+
+#ressources figure{
+	display: flex;
+	flex-direction:column;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+
+}
+#ressources figcaption{
+	width: 100%;
+	text-align: center;
+	text-overflow: wrap;
+}

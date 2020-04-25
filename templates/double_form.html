@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_model %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/double_form.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/button.css' %}">
+{% endblock css_model %}
+
+
+{% block content %}
+	{% if validate %}
+		{% block validate %}
+			
+		{% endblock validate %}
+	{% else %}	
+		{% block titre %}
+			
+		{% endblock titre %}
+
+
+		{% block comment %}
+		<p>title<br/>
+			css<br/>
+			validate<br/>
+			titre <br/>
+			comment<br/>
+			html_form_head<br/>
+			- form_set1<br/>
+			- form_set2<br/>
+		</P>
+			
+		{% endblock comment %}
+
+
+		{% block html_form_head %}
+			
+		{% endblock html_form_head %}
+
+			{% csrf_token %}
+
+			<div id="form_set1" class="form_set">
+				{% block form_set1 %}
+					
+				{% endblock form_set1 %}
+			</div>
+
+			<div id="form_set2" class="form_set">
+				{% block form_set2 %}
+					
+				{% endblock form_set2 %}
+			</div>
+
+			<button id="valider_bouton" class="classic_button" type="submit"> Valider </button>
+
+	{% endif %}
+
+
+{% endblock content %}

@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1>Les formulaires soumis</h1>
+{% if statut %}
+	{% if not statutValid %}
+		<p>La demande à bien été rejetée</p>
+	{% else %}
+		<p>je ne sais pas si c'est utile...</p>
+	{% endif %}
+	
+{% endif %}
+<span></span>
+
+<h2>En attendte de validation</h2>
 
 <table id="table_met">
 
@@ -13,19 +25,45 @@
 					</tr>
 
 
-			{% for contact in contacts %}
+			{% for contact in enAttente %}
+<a href='{% url "validDetailView" contact.pk %}'>
+					<tr><a href=''>
+						<td><a href='{% url "validDetailView" contact.pk %}'>{{contact.prenom}} {{contact.nom}}</a></td>
+						<td>{{contact.metier0i}}</td>
+						<td>{{contact.prenomV}} {{contact.nomV}}</td>
+						<td>{{contact.date}}</td>
+
+					</a></tr>
+				</a>
+
+			{% endfor %}
+
+
+				</table>
+<h1>Traités</h1>
+<h2>Refusés</h2>
+	{% for contact in refuse %}
+					<a href='{% url "validDetailView" contact.pk %}'>
+					<tr>
+						<td>{{contact.prenom}} {{contact.nom}}</td>
+						<td>{{contact.metier0}}</td>
+						<td>{{contact.prenomV}} {{contact.nomV}}</td>
+						<td>{{contact.date}}</td>
+
+					</tr>
+				</a>
+
+			{% endfor %}
+<h2>Validés</h2>
+	{% for contact in valide %}
 
 					<tr><a href=''>
 						<td>{{contact.prenom}} {{contact.nom}}</td>
-						<td>{{contact.metier}}</td>
+						<td>{{contact.metier0}}</td>
 						<td>{{contact.prenomV}} {{contact.nomV}}</td>
 						<td>{{contact.date}}</td>
 
 					</a></tr>
 
 			{% endfor %}
-
-
-				</table>
-
 {% endblock %}

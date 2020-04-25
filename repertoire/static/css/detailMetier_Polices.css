@@ -1,0 +1,154 @@
+*{
+	margin: 0;
+	padding: 0;
+	z-index: 0;
+}
+
+
+a{	
+	text-decoration: none;	
+}
+
+/*
+
+button{
+	border: none;
+	box-shadow: none;
+}
+*/
+
+@font-face {
+	font-family: 'mont';
+	src: url('../font/liste_m/Mont-ExtraLightDEMO.otf') format("opentype");
+}
+@font-face {
+	font-family: 'birthland';
+	src: url('../font/liste_m/Birthland.otf') format("opentype");
+}
+
+@font-face {
+	font-family: 'dominique';
+	src: url('../font/dominique/Dominique.otf') format("opentype");
+}
+
+
+
+@font-face {
+	font-family: 'renner';
+	src: url('../font/renner/Renner_ 400 Book.ttf') format("truetype");
+}
+
+@font-face {
+	font-family: 'absolution';
+	src: url('../font/absolution/Absolution.ttf') format("truetype");
+	font-weight: bold;
+}
+
+
+@font-face {
+	font-family: 'tahu';
+	src: url('../font/liste_m/Tahu!.ttf') format("truetype");
+}
+
+#content {
+	background: #1a1a1a;
+}
+/*Conteneur du Titre*/
+#Titre{
+	background: #1a1a1a;
+
+}
+
+#Titre h1 {
+	
+
+	font-family: tahu;
+
+	padding-top: 15px;
+	padding-left: 12%;
+	
+
+	word-spacing: 0.2em;
+	font-size: 3.3em;
+
+	font-weight: bold;
+	color: #ff3300;
+
+	
+
+}
+#Titre p {
+	color: white;
+	font-family: renner;
+	font-size: 1.2em;
+	/*padding-left: 12%;*/
+}
+
+/*figure conteneur A */
+.contact{
+	background: white;
+
+	border-left: #ff3300 solid 4px;
+
+	font-family: dominique;
+
+	color : white;
+	background: #1a1a1a;
+
+	
+}
+
+.contact_metiers{
+	font-family: mont;
+	font-size: 1.7em;
+	font-weight: heavy;
+	word-spacing: 0.5em;
+	letter-spacing: 0.05em;
+
+	border-top: #ff3300 solid 3px;
+	
+
+	color:white;
+	background: black;
+
+}
+.liste_titre{
+	font-family: renner;
+	font-weight: bold;
+	font-size: 1.2em;
+
+
+
+
+	
+
+}
+
+.liste li {
+	text-decoration: none;
+	list-style-type: none;
+
+	font-family: renner;
+	font-size: 1.06em;
+
+}
+
+#ressources{
+	margin-bottom: 20px;
+	margin-top: 5px;
+
+}
+
+#ressources h2 {
+	background: #ff3300;
+	color:black;
+
+	font-family: renner;
+	font-weight: bold;
+}
+
+#ressources a, #ressources a:hover, #ressources a:visited, #ressources a:active{
+	font-family: renner;
+	color:white;
+}
+

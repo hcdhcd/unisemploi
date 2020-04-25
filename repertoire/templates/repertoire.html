@@ -51,7 +51,7 @@
 			{% for metier in metiers %}
 
 					<tr>
-						<td><a href="">{{metier.metier}}</a></td>
+						<td><a href="{% url 'detailMetier' metier.pk %}">{{metier.metier}}</a></td>
 						<td>
 							{% for secteur in metier.secteur.all %}
 								{{secteur}}

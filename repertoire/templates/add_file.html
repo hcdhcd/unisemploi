@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}"> {% endblock %}
+
+{% block content %}
+
+	
+
+	
+
+	{% if validate %}
+		<h1>Bien recu !</h1>
+
+		<h2>Votre fichier a bien été ajouté, merci de votre aide!</h2>
+
+	{% else %}
+		<h2> {{validate}}</h2>
+
+		<h2> Ici vous pouvez déposer des fichiers comme les notes que vous avez prises lors d'un rendez vous, les connaissances que vous avez déja <br/>
+			Ils pourront être visionnés par tout un chacun.
+		 </h2>
+		<h1>Aouter du contenu pour le {{classe}} {{objet}}</h1>
+		
+		<form action="{% url 'add_file' classe objet.pk %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+
+			{{ form.as_p }}
+
+			{{ form_vol.as_p}}
+
+			<p>Pensez à laisser vos informations si vous souhaitez être recontacté</p>
+			<input type="submit" value="envoyer">
+		</form>
+
+	{% endif %}
+
+{% endblock %}

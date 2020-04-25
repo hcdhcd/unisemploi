@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	{% if statut %}
+		<p>ici un simple détail des informations et un bouton modifier ???</p>
+
+	{% else %}
+		<div id="userForm">
+			<h1>Formulaire à traiter</h1>
+			<p>soumis le : {{contact.date}}</p>
+			<h2>Volontaire</h2>
+			
+			
+
+			<div class="spacing">
+				<p>Prénom : {{contact.prenomV}}fin</p>
+				<p>Nom : {{contact.nomV}}</p>
+				<p>Groupe : {{contact.get_groupeV_display}}</p>
+			</div>
+
+			<div class="spacing">
+				<p>Téléphone : {{contact.telV}}</p>
+				<p>Adresse e-mail : {{contact.mailV}}</p>
+				<p>Intecepteur ?? : {{contact.volVisible}}</p>
+			</div>
+			
+
+			<h2>Contact</h2>
+
+			<div class="spacing">
+				<p>Prénom : {{contact.prenom}}</p>
+				<p>Nom : {{contact.nom}}</p>
+			</div>
+
+			<div class="spacing">
+				<p>Téléphone : {{contact.tel}}</p>
+				<p>Adresse e-mail : {{contact.mail}}</p>
+				<p>Disponibilités : {{contact.dispo}}</p>
+				<p>Ville(s) : {{contact.ville}}</p>
+			</div>
+
+			<div class="spacing">
+				<p>Metier : {{contact.metier0}}</p>
+				<p>Secteur : {{contact.secteur0}}</p>
+
+				{% if contact.metier1 %}
+					<p>Metier : {{contact.metier1}}</p>
+					<p>Secteur : {{contact.secteur1}}</p>
+
+					{% if contact.metier2 %}
+						<p>Metier : {{contact.metier2}}</p>
+						<p>Secteur :{{contact.secteur2}}</p>
+
+						{% if contact.metier3 %}
+							<p>Metier : {{contact.metier3}}</p>
+							<p>Secteur :{{contact.secteur3}}</p>
+
+							{% if contact.metier4 %}
+								<p>Metier : {{contact.metier4}}</p>
+								<p>Secteur :{{contact.secteur4}}</p>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				{% endif %}
+			</div>
+			
+		</div>
+
+		<div id="adminForm">
+			
+		</div>
+	{% endif %}
+<h1>Formulaire du Contact</h1>
+
+<form action="{% url "addContact" %}" method="post">
+	{% csrf_token %}
+	<a id="add_id_metier" href="/admin/repertoire/metier/add/?_to_field=id&amp;_popup=1" title="Ajouter un autre objet metier"><img src="/static/admin/img/icon-addlink.svg" alt="Ajouter">Le metier n'est pas dans la liste</a>
+	<a id
+
+
+	{{form.as_p}}
+			
+	</form>
+
+	<a href="s.html"><button href="s.html">Valider</button></a>
+	<a href="{% url 'annuaire' %}"><button >Rejeter</button></a>
+
+
+
+{% endblock %}

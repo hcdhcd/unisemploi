@@ -1,0 +1,46 @@
+.classic_button{
+	font-family: renner;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding:5px;
+	border: solid 2px black;
+	border-radius: 25px;
+	background: #ff3300;
+	min-width: 200px;
+}
+
+.classic_button:hover{
+	font-family: renner;
+	font-weight: bold;
+	font-size: 1.2em;
+	padding:5px;
+	border: solid 2px black;
+	border-radius: 25px;
+	background: url("../img/fond_rayures_hoover.png");
+	cursor: pointer;
+	min-width: 200px;
+}
+
+
+#contacter-tous_button{
+	background: lightgrey;
+	font-weight: bold;
+	font-family: renner;
+	font-size: 1.2em;
+	border: none;
+	border-radius: 2px;
+	padding : 6px;
+
+}
+
+#contacter-tous_button:hover{
+	background: white;
+	font-weight: bold;
+	font-family: renner;
+	font-size: 1.2em;
+	border: none;
+	border-radius: 2px;
+	padding : 6px;
+	cursor: pointer;
+
+}

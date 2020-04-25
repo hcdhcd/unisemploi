@@ -1,0 +1,30 @@
+{% extends 'double_form.html'%}
+
+{% block title %}
+	Prendre Contact
+{% endblock title %}
+
+{% block validate %}
+	<h1>Bien reçu!</h1>
+	<p>Nous nous occupons de vous mettre en contact</p>	
+{% endblock validate %}
+
+{% block titre %}
+	<h1>Prendre contact</h1>
+{% endblock titre %}
+
+{% block comment %}
+	
+{% endblock comment %}
+
+{% block html_form_head %}
+	<form method="post" action="{% url 'prendre_contact' 'Contact' 6 %}">
+{% endblock html_form_head %}
+
+{% block form_set1 %}
+	{{ form_vol.as_p}}
+{% endblock form_set1 %}
+
+{% block form_set2 %}
+	{{ form.as_p}}
+{% endblock form_set2 %}

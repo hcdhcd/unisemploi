@@ -1,7 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+from base.models import AdminCheck
+from django.utils import timezone
 
 
-class Volontaire(models.Model):
+
+class Volontaire(AdminCheck):
+
+	user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True) 
 
 	"""	groupes=choices('Non Unis'
 			'Connectes/emplois',
@@ -20,12 +26,15 @@ class Volontaire(models.Model):
 		('na', 'N\'appartient pas à Unis-Cité'),
 	]
 
-	prenom = models.CharField(max_length=30)
-	nom = models.CharField(max_length=30)
+	prenom_vol = models.CharField(max_length=30)
+	nom_vol = models.CharField(max_length=30)
 	groupe = models.CharField(max_length=2, choices=GROUPE_CHOICES, default='01' )
 	
-	tel = models.CharField(max_length=10, blank=True, null=True)
-	mail = models.EmailField(blank=True, null=True)
+	tel_vol = models.CharField(max_length=10, blank=True, null=True)
+	mail_vol = models.EmailField(blank=True, null=True)
+
+	date_pub = models.DateTimeField(default=timezone.now)
+	
 
 
 
@@ -34,4 +43,5 @@ class Volontaire(models.Model):
 	
 	def __str__(self):
 
-		return "{0} {1}".format(self.prenom, self.nom)
+		return "{0} {1}".format(self.prenom_vol, self.nom_vol)
+
