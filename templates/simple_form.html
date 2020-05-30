@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block css %} <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}"> {% endblock %}
+{% block css_model %} <link rel="stylesheet" type="text/css" href="{% static 'css/simple_form.css' %}"> {% endblock css_model %}
+
 
 {% block content %}
 
@@ -24,16 +25,32 @@
 	{% else %}
 
 		{% block unvalidate %}
-			<h2>{% block comment_form %} 
-				block comment_form
-			 {% endblock %}</h2>
+
 
 			<h1>{% block titre %}
-				block titre
+				block titre a linterieur dune balise h1
 			{% endblock%}</h1>
+
+			<p>{% block comment %}
+				comment à linterieur d'une balise p
+			{% endblock comment %}</p>
 			
+
 			{% block form %}
 			<p>block form</p>
+			<p>
+			<!--{# 
+				<form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					{{ form.as_p }}
+
+					{{ form_vol.as_p}}
+
+					<p>Pensez à laisser vos informations si vous souhaitez être recontacté</p>
+					<input type="submit" value="envoyer">
+				</form>
+			 #}-->
 			{% endblock %}
 		{% endblock %}
 

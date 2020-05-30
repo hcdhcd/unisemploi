@@ -1,8 +1,18 @@
 {% extends 'double_form.html'%}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/prendre_contact.css' %}">
+	{# pour regler multiselectfield affichage problem #}
+
+{% endblock css %}
+
 
 {% block title %}
 	Prendre Contact
 {% endblock title %}
+
+
 
 {% block validate %}
 	<h1>Bien reçu!</h1>
@@ -10,7 +20,7 @@
 {% endblock validate %}
 
 {% block titre %}
-	<h1>Prendre contact</h1>
+	Prendre contact
 {% endblock titre %}
 
 {% block comment %}

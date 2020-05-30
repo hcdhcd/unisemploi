@@ -1,0 +1,239 @@
+.step1.hidden, .step2.hidden, .step3.hidden{
+	visibility: hidden;
+	height: 0px;
+	width: 0px;
+}
+
+.none{
+	display:none;
+}
+section {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background: rgb(300,300,300);
+
+
+}
+
+h1{
+	margin-top: 4%;
+	margin-bottom: 1%;
+	
+}
+
+#comment{
+	max-width: 50%;
+
+}
+
+
+.double {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: start;
+
+
+}
+
+.double .form_set:not(.hidden){
+	margin-top: 5%;
+	margin-bottom: 5%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	min-width: 50%;
+}
+
+
+
+
+.double p input, .double p select, .double p textarea {
+	display: block;
+	margin:auto;
+	width:400px;
+
+	border: solid 1px black;
+	border-radius: 0px;
+	margin-bottom: 15px;
+}
+
+.double  .helptext{
+	display: block;
+	margin:auto;
+	width:400px;
+	font-size: 1em;
+	color: grey;
+
+
+}
+
+
+.double #valider_bouton {
+
+	align-self: flex-end;
+	margin-top: 30px;
+	margin-bottom: 60px;
+	padding-left: 30px;
+	padding-right:30px;
+
+}
+
+p {
+	font-family: renner;
+}
+
+/* en cas de checkbox input */
+
+.double .form_set ul{
+	font-family: renner;
+	font-size: 1.1em;
+	margin-bottom: 30px;
+}
+
+.double .form_set ul li{
+	display: block;
+	width:170px;
+
+	margin: 5px auto 5px auto ;
+
+}
+
+.double .form_set ul label{
+	display: inline-block;
+
+
+	margin: 0 0 0 20px;
+	
+}
+
+.double .formset ul li input{
+	display: inline;
+
+}
+
+.double .input_img{
+	width:16px;
+	height: 16px;
+	border:0px;
+	margin:0;
+}
+
+.double .small{
+	width:170px;
+}
+
+.double .add_button{
+
+	font-family: renner;
+	font-size: 1.2em;
+}
+
+.inline{
+	display:inline;
+}
+
+.green{
+	color:green;
+}
+
+.pointer:hover{
+	cursor:pointer;
+}
+
+.float_right{
+
+	float:right;
+}
+
+.img_button{
+	background: none;
+	box-shadow: unset;
+}
+
+/*SIMPLE FORM*/
+
+.simple {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-width: 60vw;
+	margin-top: 20px;
+
+	font-family: renner;
+
+}
+.simple .step2 {
+	width: 100%;
+}
+
+.simple label{
+	float: top;
+}
+
+.simple input, .simple textarea{
+	display: block;
+	margin:auto;
+	width:90%;
+
+	border: solid 1px black;
+}
+
+.simple .wrapper_row ul{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.simple .wrapper_row p {
+	padding: 5px 35px 5px 20px;
+}
+.simple .wrapper_row ul li{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: space-envenly;
+	width:170px;
+
+
+	margin: 5px auto 5px auto ;
+
+}
+
+.simple .wrapper_row ul label{
+
+	width:150px;
+	margin: 0 0 0 20px;
+	
+}
+
+.simple .wrapper_row ul li input{
+
+	width: 20px;
+	height:25px;
+
+}
+
+.simple .wrapper_row{
+	display: flex;
+	min-width:90%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid rgb(40,40,40);
+	padding:20px 0 14px 0;
+	margin:0 0 30px 0 ;
+}
+
+.simple .button_row:not(.none){
+	display: flex;
+	flex_direction:row;
+	align-items: center;
+	justify-content: center;
+}

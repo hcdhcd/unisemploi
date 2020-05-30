@@ -3,6 +3,8 @@ from django.utils import timezone
 from repertoire.models import Metier, Secteur, Contact
 from utilisateurs.models import Volontaire
 from repertoire.forms import RessourceForm, RequeteForm
+from base.forms import Add_ContactForm
+from utilisateurs.forms import Add_VolontaireForm 
 from utilisateurs.forms import Ressource_VolontaireForm, VolontaireForm
 
 
@@ -111,4 +113,34 @@ def prendre_contact(request, classe, pk):
 		ressource.save()
 
 	return render(request, 'prendre_contact.html', locals())
+
+
+
+def step0(request):
+	metiers = Metier.objects.all()
+	secteurs=Secteur.objects.all()
+	validate=0
+	return render(request, 'step0.html', locals())
+
+
+
+def step1(request):	
+	metiers = Metier.objects.all()
+	secteurs=Secteur.objects.all()
+	validate=0
+	return render(request, 'step1.html', locals())
+
+
+
+
+def step2(request):
+	form_vol = Add_VolontaireForm(request.POST or None)
+	form_contact = Add_ContactForm(request.POST or None)
+
+
+	return render(request, 'step2.html', locals())
+
+
+def step3(request):
+	return render(request, 'step3.html')
 

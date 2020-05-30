@@ -15,15 +15,14 @@
 
 	<h1>Merci d'avoir partagé votre contact</h1>
 	<h2>Vous le verrez sur le site sitôt que nous aurons traite la demande</h2>
-	<p>{{required}}</p>
-	<p>{{metiers}}{{secteurs}}</p>
+
 
 {% else %}
 <h1> Ajouter un Contact </h1>
 
 <form action="{% url "addContact" %}" method="post">
 	{% csrf_token %}
-	<div id="form_content">
+	<div id="form_set">
 		<div id="form_div">
 			<h2>Mes informations</h2>
 

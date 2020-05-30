@@ -33,6 +33,10 @@ class Add_VolontaireForm(forms.ModelForm):
 				"intermediaire": "Intermediaire",
 			}
 
+		help_texts={
+				"intermediaire" : "Si vous souhaitez pouvoir servir d\'intermédiaire entre un volontaire et votre contact.",
+					}	
+
 
 class Ressource_VolontaireForm(forms.ModelForm):
 

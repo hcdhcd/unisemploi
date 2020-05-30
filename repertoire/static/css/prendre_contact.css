@@ -1,0 +1,10 @@
+/*pour le multi select field rendering*/
+
+#form_set2 input {
+	display: inline;
+	margin:5px;
+	width:10px;
+
+	border: solid 1px black;
+}
+

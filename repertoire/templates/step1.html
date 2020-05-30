@@ -1,0 +1,37 @@
+{% extends "simple_form.html" %}
+{% load static %}
+
+{% block titre %}
+	Ajouter un contact
+{% endblock titre %}
+{% block comment %}
+	Associez les secteurs aux metiers.
+{% endblock comment %}
+
+
+{% block form %}
+	<form action="" method="post">
+		<div class="wrapper_row">
+			<p>Architecte</p>
+			<ul>
+				{% for metier in  metiers%}
+				<li class="list_ul">
+					<input type="checkbox" name="{{metier.metier}}" id="metier_{{metier.id}}" class="list_input">	
+					<label class="list_label" for="metier_{{metier.id}}">{{metier.metier}}</label>			
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="button_row">
+			<button id="valider_bouton" class="classic_button" type="button" onclick="window.location.href='{% url 'step0' %}';" >
+				&emsp;Etape 1 <<
+			</button>
+
+			<button id="valider_bouton" class="classic_button" type="button" onclick="window.location.href='{% url 'step2' %}';" >
+				>> Etape 2 &emsp; 
+			</button>
+		</div>
+
+	</form>
+	
+{% endblock form %}

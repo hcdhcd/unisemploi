@@ -106,6 +106,14 @@ def add_contact(request):
 
 	return render(request, 'add_contact.html', locals())
 
+def add_contactjs(request):
+	metiers = Metier.objects.all()
+	secteurs=Secteur.objects.all()
+	form_vol = Add_VolontaireForm(request.POST or None)
+	form_contact = Add_ContactForm(request.POST or None)
+	validate=0
+	return render(request, 'add_contactjs.html', locals())
+
 
 
 

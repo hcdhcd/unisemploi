@@ -1,0 +1,98 @@
+section{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	background: rgb(300,300,300);
+
+}
+
+
+h1{
+	margin-top: 4%;
+	margin-bottom: 1%;
+	
+}
+
+#comment{
+	max-width: 50%;
+
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-width: 60vw;
+	margin-top: 20px;
+
+	font-family: renner;
+
+}
+
+label{
+	float: top;
+}
+
+input, textarea{
+	display: block;
+	margin:auto;
+	width:90%;
+
+	border: solid 1px black;
+}
+
+.wrapper_row ul{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.wrapper_row p {
+	padding: 5px 35px 5px 20px;
+}
+.wrapper_row ul li{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: space-envenly;
+	width:170px;
+
+
+	margin: 5px auto 5px auto ;
+
+}
+
+.wrapper_row ul label{
+
+	width:150px;
+	margin: 0 0 0 20px;
+	
+}
+
+.wrapper_row ul li input{
+
+	width: 20px;
+	height:25px;
+
+}
+
+.wrapper_row{
+	display: flex;
+	min-width:90%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	border: 1px solid rgb(40,40,40);
+	padding:20px 0 14px 0;
+	margin:0 0 30px 0 ;
+}
+
+.button_row{
+	display: flex;
+	flex_direction:row;
+	align-items: center;
+	justify-content: center;
+}

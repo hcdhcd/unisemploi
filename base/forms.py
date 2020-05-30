@@ -22,12 +22,16 @@ class Add_ContactForm(forms.ModelForm):
 		model = Contact
 
 		fields=[
+
 				'prenom',
 				'nom',
+				'ville',
+				
 				'tel',
 				'mail', 
-				'ville',
-				'dispo', 
+				'dispo',
+				
+				 
 				]
 
 		labels = {
@@ -38,6 +42,7 @@ class Add_ContactForm(forms.ModelForm):
 				"ville":"Ville(s)(facultatif)",
 				"dispo": "Disponibilités",
 				}
+
 
 
 class Add_ContactMetierForm(forms.Form):

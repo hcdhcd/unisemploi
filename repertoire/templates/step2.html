@@ -1,0 +1,43 @@
+{% extends "double_form.html" %}
+{% load static %}
+
+{% block title %}
+	Ajouter un contact
+{% endblock title %}
+
+{% block titre %}
+	Ajouter un contact
+{% endblock titre %}
+
+
+{% block comment %}
+	Selectionnez les secteurs et les metiers de votre contact, si l'un d'eux n'est pas dans la liste, vous pouvez le saisir directement.
+{% endblock comment %}
+
+{% block html_form_head %}
+	<form>
+{% endblock html_form_head %}
+
+	{% block subtitle1 %}
+		Mes informations
+	{% endblock subtitle1 %}
+
+{% block form_set1 %}
+	{{form_vol.as_p}}
+	
+{% endblock form_set1 %}
+
+{% block subtitle2 %}
+	Mon contact
+{% endblock subtitle2 %}
+
+{% block form_set2 %}
+	{{form_contact.as_p}}
+	
+{% endblock form_set2 %}
+
+{% block button %}
+	<button id="valider_bouton" class="classic_button" type="button" onclick="window.location.href='{% url 'step1' %}';" >
+		>> Etape 2 &emsp; 
+	</button>
+{% endblock button %}

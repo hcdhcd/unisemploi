@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_contactjs.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/button.css' %}">	
+{% endblock css %}
+{% block js %}
+	<script src="{% static 'js/add_contact/functions.js' %}" defer></script>
+	<script src="{% static 'js/add_contact/var.js' %}" defer></script>
+	<script src="{% static 'js/add_contact/onclick.js' %}" defer></script>
+
+{% endblock js %}
+{% block title %}Ajouter un contact{% endblock title %}
+{% block content %}
+
+	<h1 id="titre" class="">Ajouter un contact (1/3)</h1>
+	<p id="comment" class="">
+	Selectionnez les secteurs et les metiers de votre contact, si l'un d'eux n'est pas dans la liste, vous pouvez le saisir directement.
+	</p>
+	<form class="double">
+		{% csrf_token %}
+		<input type="hidden" name="newMetierList">
+		<input type="hidden" name="newSecteurList">
+		
+			<div id="metier_div" class="form_set step1 ">
+				<h2 class="subtitle">Metiers</h2>
+				<ul >
+					{% for metier in metiers %}
+						<li class="list_ul">
+							<input type="checkbox" name="{{metier.metier}}" id="metier_{{metier.id}}" class="list_input">	
+							<label class="list_label" for="metier_{{metier.id}}">{{metier.metier}}</label>			
+						</li>	
+					{% endfor %}
+				</ul>
+				<p class="small field_metier" >
+					<label class="small" for="metier0" name="metier0">Nouveau metier</label>
+					<button type='button' class="float_right img_button pointer inline delete" id="m"><img src="{% static 'img/x.png' %}"></button>	
+					<input class="small" type="text" name="metier0" id="metier0">
+				</p>
+				<button type="button" class="add_button img_button inline green pointer" id="+metier">		
+					<img src="{% static 'img/plus.png' %}"  class="input_img inline pointer" onclick=";" height="16px" width="16px" />
+					Ajouter
+				</button>
+			</div>
+			<div id="form_set2" class="form_set step1 ">
+				<h2 class="subtitle">Secteurs</h2>
+				<ul class="list-ul">
+					{% for secteur in secteurs %}
+						<li class="list_li">
+							<input type="checkbox" name="{{secteur.secteur}}" id="secteur_{{secteur.id}}" class="list_input">	
+							<label class="list_label" for="secteur_{{secteur.id}}">{{secteur.secteur}}</label>	
+						</li>
+					{% endfor %}
+				</ul>
+				<p class="small field_secteur">
+					<label for="secteur0" name="secteur0" class="small">Nouveau secteur</label>
+					<button type='button' class="float_right img_button pointer inline delete" id="s"><img src="{% static 'img/x.png' %}"></button>	
+					<input type="text" name="secteur0" id="secteur0" class="small">	
+				</p >
+				<button type="button" class="add_button img_button inline green pointer " id="+secteur">		
+					<img src="{% static 'img/plus.png' %}" id="+metier" class="input_img inline pointer" onclick=";" height="16px" width="16px" />
+					Ajouter
+				</button>
+			</div>
+			<button id="buttonStep1To2" class="classic_button" type="button"  >
+				>> Etape 2 &emsp; 
+			</button>
+
+			<div class="step2 hidden">
+				<div class="wrapper_row">
+					<p>Architecte</p>
+					<ul>
+						{% for metier in  metiers%}
+						<li class="list_ul">
+							<input type="checkbox" name="{{metier.metier}}" id="metier_{{metier.id}}" class="list_input">	
+							<label class="list_label" for="metier_{{metier.id}}">{{metier.metier}}</label>			
+						</li>
+						{% endfor %}
+					</ul>
+				</div>
+				
+				<div id = "buttonsStep2" class="button_row none">
+					<button id="buttonStep2To1" class="classic_button"  >
+						&emsp;Etape 1 <<
+					</button>
+
+					<button id="buttonStep2To3" class="classic_button"  >
+						>> Etape 3 &emsp; 
+					</button>
+				</div>
+			</div>
+{# STEP 3 #}
+			<div id="form_set1" class="form_set step3 hidden">
+				<h2 class="subtitle">Mes informations</h2>
+				{{form_vol.as_p}}
+			</div>
+			<div id="form_set2" class="form_set step3 hidden">
+				<h2 class="subtitle">Mon Contact</h2>
+				{{form_contact.as_p}}
+			</div>
+
+			<div id="buttonsStep3" class="button_row none">
+					<button id="buttonStep3To2" class="classic_button"  >
+						&emsp;Etape 2 <<
+					</button>
+
+					<button id="valider" class="classic_button" type="submit" >
+						Valider
+					</button>
+			</div>
+		
+
+
+	</form>
+
+{% endblock content %}

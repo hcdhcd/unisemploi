@@ -129,16 +129,26 @@ section {
 	margin-left: 10px;
 }
 
-#ressources figure{
+.ressource_file{
 	display: flex;
 	flex-direction:column;
 	flex-wrap: wrap;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: flex-start;
+	margin: 20px 15px 20px 15px;
+	width:170px;
+	color:white;
+	font-family: renner;
 
 }
-#ressources figcaption{
-	width: 100%;
+
+.ressource_file:hover{
+	cursor:pointer
+}
+
+.ressource_file figcaption{
+	width:170px;
 	text-align: center;
 	text-overflow: wrap;
 }
+

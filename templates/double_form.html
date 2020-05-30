@@ -5,54 +5,74 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/double_form.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/button.css' %}">
 {% endblock css_model %}
-
+{# multi select field peut poser probleme, voir prendre_contact.css pour idee #}
 
 {% block content %}
-	{% if validate %}
-		{% block validate %}
-			
-		{% endblock validate %}
-	{% else %}	
-		{% block titre %}
-			
-		{% endblock titre %}
+			{% if validate %}
+
+	{% block validate %}
+	{% endblock validate %}
+
+		
+			{% else %}	
+			<h1 id="titre">
+	{% block titre %}
+	{% endblock titre %}
+			</h1>
+
+			<p id="comment">
+	{% block comment %}
+				title<br/>
+				css<br/>
+				validate<br/>
+				titre <br/>
+				comment<br/>
+				html_form_head<br/>
+				- form_set1<br/>
+				- form_set2<br/>
+	{% endblock comment %}
+			</p>
+
+	{% block html_form_head %}
+	{% endblock html_form_head %}
+
+				{% csrf_token %}
+
+				<div id="form_set1" class="form_set">
+
+					<h2 class="subtitle">
+	{% block subtitle1 %}		
+	{% endblock subtitle1 %}
+					</h2>
 
 
-		{% block comment %}
-		<p>title<br/>
-			css<br/>
-			validate<br/>
-			titre <br/>
-			comment<br/>
-			html_form_head<br/>
-			- form_set1<br/>
-			- form_set2<br/>
-		</P>
-			
-		{% endblock comment %}
+	{% block form_set1 %}			
+	{% endblock form_set1 %}
+				</div>
 
+				<div id="form_set2" class="form_set">
+					<h2 class="subtitle">
+	{% block subtitle2 %}
+	{% endblock subtitle2 %}
+					</h2>
 
-		{% block html_form_head %}
-			
-		{% endblock html_form_head %}
+	{% block form_set2 %}					
+	{% endblock form_set2 %}
+				</div>
 
-			{% csrf_token %}
+	{% block button %}
+					<button id="valider_bouton" class="classic_button" type="submit" >
+		{% block button_inner %}
+					 	Valider
+		{% endblock button_inner %}
+					</button>
+	{% endblock button %}
 
-			<div id="form_set1" class="form_set">
-				{% block form_set1 %}
-					
-				{% endblock form_set1 %}
-			</div>
+			{% endif %}
 
-			<div id="form_set2" class="form_set">
-				{% block form_set2 %}
-					
-				{% endblock form_set2 %}
-			</div>
-
-			<button id="valider_bouton" class="classic_button" type="submit"> Valider </button>
-
-	{% endif %}
+	{% block scripts %}
+		
+	{% endblock scripts %}
 
 
 {% endblock content %}

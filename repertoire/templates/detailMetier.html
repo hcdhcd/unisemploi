@@ -79,33 +79,29 @@
 	</article>
 	<aside id="ressources">
 		<h2>Ressources déjà partagées</h2>
-			<a href="">
 
-					<figure>
-						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
-						<figcaption>Bien préparer son entretient.pdf</figcaption>
-					</figure>
+			<figure onclick="window.location.href='';" class="ressource_file">
+				<img src="{% static 'img/icon_extentions/txt.png' %}" alt="pdf_icon" width="128" height="128" >
+				<figcaption>Bien préparer son entretient.pdf</figcaption>
+			</figure>
 
-			</a>
-			<a href="">
 
-					<figure>
-						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
-						<figcaption>nomDuDoc.pdf</figcaption>
-					</figure>
 
-			</a>
-			<a href="">
+			<figure onclick="window.location.href='';" class="ressource_file">
+				<img src="{% static 'img/icon_extentions/pdf.png' %}" alt="pdf_icon" width="128" height="128" >
+				<figcaption>nomDuDoc.pdf</figcaption>
+			</figure>
 
-					<figure>
-						<img src="{% static 'img/fileIcon/pdf.png' %}" alt="pdf_icon" width="256" height="256" >
-						<figcaption>Ajouter du contenu relatif à ce memétier</figcaption>
-					</figure>
+			<figure onclick="window.location.href='';" class="ressource_file">
+				<img src="{% static 'img/icon_extentions/png.png' %}" alt="pdf_file" width="128" height="128" >
+				<figcaption>Ajouter du contenu relatif à ce memétier</figcaption>
+			</figure>
 
-			</a>
-		<button onclick="window.location.href='{% url 'add_file' 'Metier' metier.pk %}';" class="+_button">
-			je souhaite rajouter du contenu
-		</button>
+
+			<figure onclick="window.location.href='{% url 'add_file' 'Metier' metier.pk %}';" class="ressource_file">
+				<img src="{% static 'img/icon_extentions/plus.png' %}" alt="Ajouter du contenu" width="128" height="128" >
+				<figcaption>Ajouter du contenu </figcaption>
+			</figure>
 	</aside>
 
 {% endblock %}
